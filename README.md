@@ -48,5 +48,5 @@ print(fiicen.check_account_name(name="ユーザー名"))#ユーザー名が使�
   ```0,1,2,3,4,5,6......```
   
 ## コンタクト
-Discord サーバー / https://discord.gg/aSyaAK7Ktm
+Discord サーバー / https://discord.gg/aSyaAK7Ktm  
 Discord ユーザー名 / .taka.
