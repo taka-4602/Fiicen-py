@@ -27,7 +27,7 @@ class Fiicen():
                 raise FiicenError(error.text)
 
     def check_account_name(self,name:str):
-        return requests.get(f"https://fiicen.jp/signup/check_account_name/?account_name={name}").json()
+        return bool(requests.get(f"https://fiicen.jp/signup/check_account_name/?account_name={name}").json()['is_taken'])
     
     def create_account(self,name:str,display_name:str,password:str):
         self.session.get("https://fiicen.jp/signup/")
