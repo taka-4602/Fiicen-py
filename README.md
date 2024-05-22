@@ -5,6 +5,7 @@ FiicenというSNSに使えるAPIラッパー
 - requests
 - bs4
 ## 使い方  
+#### example.py
 ```py
 from fiicen_py import Fiicen
 
