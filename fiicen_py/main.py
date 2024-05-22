@@ -80,3 +80,49 @@ class Fiicen():
         if follow.status_code!=200:
             raise FiicenError(follow.text)
         return follow.status_code
+    
+    def like(self,circle_id:str):
+        like_info={
+            "circle_id":circle_id
+        }
+        like=self.session.post("https://fiicen.jp/circle/like/",headers=self.headers,data=like_info)
+        if like.status_code!=200:
+            raise FiicenError(like.text)
+        return like.status_code
+    
+    def refly(self,circle_id:str):
+        refly_info={
+            "circle_id":circle_id
+        }
+        refly=self.session.post("https://fiicen.jp/circle/refly/",headers=self.headers,data=refly_info)
+        if refly.status_code!=200:
+            raise FiicenError(refly.text)
+        return refly.status_code
+    
+    def notification(self):
+        noti=self.session.post("https://fiicen.jp/notification/count/",headers=self.headers)
+        if noti.status_code!=200:
+            raise FiicenError(noti.text)
+        return int(noti.json()["count"])
+    
+    def fix_circle(self,circle_id:str):
+        fix_info={
+            "circle_id":circle_id
+        }
+        fix=self.session.post("https://fiicen.jp/circle/fix/",headers=self.headers,data=fix_info)
+        if fix.status_code!=200:
+            raise FiicenError(fix.text)
+        return fix.json()
+    
+    def report(self,circle_id:str,type:str="harassment"):
+        if type=="harassment" or type=="sensitive" or type=="spam" or type=="suicide" or type=="spoofing" or type=="privacy" or type=="violence" or type=="misinformation" or type=="discrimination":
+            None
+        else:
+            raise FiicenError("typeは 'harassment' / 'sensitive' / 'spam' / 'suicide' / 'spoofing' / 'privacy' / 'violence' / 'misinformation' / 'discrimination' のどれかから選んでください")
+        report_info={
+            "type": type
+        }
+        report=self.session.post(f"https://fiicen.jp/report/circle/{circle_id}",headers=self.headers,data=report_info)
+        if report.status_code!=200:
+            raise FiicenError(report.text)
+        return report.status_code
