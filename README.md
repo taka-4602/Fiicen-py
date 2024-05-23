@@ -21,6 +21,7 @@ print(fiicen.like(circle_id="サークルID"))#いいね！
 print(fiicen.refly(circle_id="サークルID"))#リフライ
 print(fiicen.fix_circle(circle_id="サークルID"))#プロフィールにサークルを固定
 print(fiicen.report(circle_id="サークルID",type="通報理由"))#サークルを通報、理由は：harassment / sensitive / spam / suicide / spoofing / privacy / violence / misinformation / discrimination から選ぶ
+print(fiicen.vote(circle_id="サークルID",choices_id="投票の選択肢のID"))#投票する
 
 fiicen=Fiicen()#アカウント作成の時はログインをスキップ
 print(fiicen.create_account(name="ユーザー名",display_name="表示名",password="パスワード"))
@@ -48,6 +49,10 @@ print(fiicen.check_account_name(name="ユーザー名"))#ユーザー名が使�
 ```.notification()```
 - **int**  
   ```0,1,2,3,4,5,6......```
+
+```.vote()```
+- **dict**  
+  ```{result:"liked"}```
 ## アカウントジェネレーター  
 #### fiicen_gen.py
 ```py
