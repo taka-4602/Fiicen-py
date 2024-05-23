@@ -1,5 +1,5 @@
 # Fiicen-py
-FiicenというSNSに使えるAPIラッパー
+[Fiicen](https://fiicen.jp/)というSNSに使えるAPIラッパー
 ### >>```pip install fiicen-py```<<  
 ## 必須モジュール  
 - requests
