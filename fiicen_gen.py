@@ -34,6 +34,7 @@ def account_gen(account_name:str,display_name:str,password:str):
         sleep(1)
         driver.find_element(By.XPATH, '//*[@onclick="openSignupPage(5, 6), submitSignup()"]').click()
         sleep(1)
+        driver.delete_all_cookies()
         Fiicen(account_name,password)
         return "OK"
     except:
