@@ -54,6 +54,7 @@ print(fiicen.check_account_name(name="ユーザー名"))#ユーザー名が使�
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
+from fiicen_py import Fiicen
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
@@ -62,6 +63,7 @@ driver = webdriver.Chrome(options=options)
 def account_gen(account_name:str,display_name:str,password:str):
     try:
         driver.get('https://fiicen.jp/login/')#reCaptha追加されてるのにこのリクエストがないとcsrftokenが生成されないやばいバグが修正されてない (5/22)
+        #sleep(1)
         driver.get('https://fiicen.jp/signup/')
         sleep(1)
         try:
@@ -83,6 +85,8 @@ def account_gen(account_name:str,display_name:str,password:str):
         driver.find_element(By.XPATH, '//*[@onclick="openSignupPage(4, 5);"]').click()
         sleep(1)
         driver.find_element(By.XPATH, '//*[@onclick="openSignupPage(5, 6), submitSignup()"]').click()
+        sleep(1)
+        Fiicen(account_name,password)
         return "OK"
     except:
         return "Failed"
