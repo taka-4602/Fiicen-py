@@ -58,6 +58,7 @@ from fiicen_py import Fiicen
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
+#options.add_argument('--proxy-server=http://IP.ア.ドレ.ス:ポート')#プロキシを設定する
 driver = webdriver.Chrome(options=options)
 
 def account_gen(account_name:str,display_name:str,password:str):
