@@ -1,4 +1,4 @@
-from .main import Fiicen
+from fiicen_py import Fiicen
 
 fiicen=Fiicen(name="ユーザー名",password="パスワード")#ログイン、nameとpasswordを設定しなかったらログインをスキップします
 print(fiicen.fly_circle(contents="メインの文章",vote_choices1="投票の選択肢1",vote_choices2="投票の選択肢2"))#リプライをつける時は circle_id="リプするサークルID"
@@ -10,6 +10,7 @@ print(fiicen.like(circle_id="サークルID"))#いいね！
 print(fiicen.refly(circle_id="サークルID"))#リフライ
 print(fiicen.fix_circle(circle_id="サークルID"))#プロフィールにサークルを固定
 print(fiicen.report(circle_id="サークルID",type="通報理由"))#サークルを通報、理由は：harassment / sensitive / spam / suicide / spoofing / privacy / violence / misinformation / discrimination から選ぶ
+print(fiicen.vote(circle_id="サークルID",choices_id="投票の選択肢のID"))#投票する
 
 fiicen=Fiicen()#アカウント作成の時はログインをスキップ
 print(fiicen.create_account(name="ユーザー名",display_name="表示名",password="パスワード"))
